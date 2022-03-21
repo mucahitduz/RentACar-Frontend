@@ -2,6 +2,7 @@ import { CarService } from './../../services/car.service';
 import { Component, OnInit } from '@angular/core';
 import { Car } from 'src/app/models/car';
 import { ActivatedRoute } from '@angular/router';
+import { CarDetail } from 'src/app/models/carDetail';
 
 @Component({
   selector: 'app-car',
@@ -10,6 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CarComponent implements OnInit {
   cars: Car[] = [];
+  imgUrl ="https://localhost:2786/Images/"
+  currentCar:CarDetail;
   dataLoaded = false;
 
   constructor(

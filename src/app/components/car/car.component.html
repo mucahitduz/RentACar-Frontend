@@ -3,24 +3,15 @@
 </div>
 <table *ngIf="dataLoaded==true" class="table">
   <thead>
-    <tr>
-      <th>Id</th>
-      <th>Marka</th>
-      <th>Renk</th>
-      <th>Model</th>
-      <th>Model Yılı</th>
-      <th>Günlük Fiyat</th>
-      <th>Açıklama</th>
+    <tr *ngFor="let car of cars">
+      <div class="card" style="width: 18rem;">
+        <img  src="http://localhost:2786/Images/210cd955-c951-4257-8ef9-2af4fad5421b.png"  class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{car.carName}}</h5>
+          <p class="card-text">{{car.description}}</p>
+          <a href="#" class="btn btn-primary">Kirala</a>
+        </div>
+      </div>
     </tr>
   </thead>
-  <tr *ngFor="let car of cars">
-    <td>{{ car.id }}</td>
-    <td>{{ car.brandName }}</td>
-    <td>{{ car.colorName }}</td>
-    <td>{{ car.carName }}</td>
-    <td>{{ car.modelYear }}</td>
-    <td>{{ car.dailyPrice }}</td>
-    <td>{{ car.description }}</td>
-  </tr>
 </table>
-
