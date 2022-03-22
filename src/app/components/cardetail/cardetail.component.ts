@@ -2,7 +2,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CarService } from './../../services/car.service';
 import { CarImage } from './../../models/carImage';
 import { Component, OnInit } from '@angular/core';
-import { Car } from 'src/app/models/car';
+import { CarDetail } from 'src/app/models/carDetail';
 
 @Component({
   selector: 'app-cardetail',
@@ -10,7 +10,7 @@ import { Car } from 'src/app/models/car';
   styleUrls: ['./cardetail.component.css']
 })
 export class CarDetailComponent implements OnInit {
- car:Car[]=[];
+ carDetails:CarDetail[]=[];
  carImages:CarImage[];
  carId:number;
  imgUrl:string="http://localhost:2786/Images/"
@@ -28,8 +28,8 @@ export class CarDetailComponent implements OnInit {
 
   getCarDetails(carId:number){
     this.carService.getCarDetails(carId).subscribe(response=>{
-      this.car=response.data;
-      this.carImages=this.car[0].carImage;
+      this.carDetails=response.data;
+      this.carImages=this.carDetails[0].carImage;
     })
   }
 

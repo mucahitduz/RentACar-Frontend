@@ -1,8 +1,9 @@
+import { CarDetailDto } from './../../models/carDetailDto';
 import { CarService } from './../../services/car.service';
 import { Component, OnInit } from '@angular/core';
-import { Car } from 'src/app/models/car';
-import { ActivatedRoute } from '@angular/router';
 import { CarDetail } from 'src/app/models/carDetail';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-car',
@@ -10,9 +11,11 @@ import { CarDetail } from 'src/app/models/carDetail';
   styleUrls: ['./car.component.css'],
 })
 export class CarComponent implements OnInit {
-  cars: Car[] = [];
+  cars: CarDetailDto[] = [];
+  CarDetail:CarDetail;
   imgUrl ="https://localhost:2786/Images/"
-  currentCar:CarDetail;
+  currentCar:CarDetailDto;
+  defaultImage="";
   dataLoaded = false;
 
   constructor(
@@ -53,5 +56,9 @@ export class CarComponent implements OnInit {
       this.cars = response.data;
       this.dataLoaded = true;
     });
+  }
+
+  setCurrentCar(carDetailDto:CarDetailDto){
+    this.currentCar=carDetailDto;
   }
 }

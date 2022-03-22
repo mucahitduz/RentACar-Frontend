@@ -21,7 +21,6 @@ import { CarDetailComponent } from './components/cardetail/cardetail.component';
     CustomerComponent,
     RentalComponent,
     NaviComponent,
-    CarDetailComponent,
     CarDetailComponent
   ],
   imports: [
