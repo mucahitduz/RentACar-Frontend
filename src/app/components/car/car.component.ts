@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CarComponent implements OnInit {
   cars: CarDetailDto[] = [];
-  CarDetail:CarDetail;
+  carDetail:CarDetail;
   imgUrl ="https://localhost:2786/Images/"
   currentCar:CarDetailDto;
   defaultImage="";
