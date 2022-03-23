@@ -27,6 +27,10 @@ setCurrentBrand(brand:Brand){
   this.currentBrand=brand;
 }
 
+resetCurrentBrand(){
+  this.currentBrand={id:0,name:""};
+}
+
 getCurrentBrandClass(brand:Brand){
   if(brand==this.currentBrand){
     return "list-group-item active";
