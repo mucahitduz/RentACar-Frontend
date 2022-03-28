@@ -6,10 +6,18 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 
+<div class="mb-3">
+  <label for="carFilter" class="form-label">Ara</label>
+  <input type="text" [(ngModel)]="carFilter" class="form-control" id="carFilter" placeholder="Arama ifadesi giriniz.">
+</div>
+<div *ngIf="carFilter.length>2" class="alert alert-primary">
+{{carFilter}} araçlar listelendi.
+</div>
+
 <div class="row">
   <div
     class="col-lg-4 col-md-6 shadow-lg p-3 mb-5 bg-body rounded"
-    *ngFor="let car of cars"
+    *ngFor="let car of cars | carFilterPipe:carFilter"
   >  
     <div class="card border-0 mb-3" style="width: 19rem">
       <img  src="http://localhost:2786/Images/{{car.carImage[0].imagePath}}"  class="card-img-top" alt="..." width="200" height="200">      

@@ -1,3 +1,4 @@
+import { CarDetailDto } from './../../models/carDetailDto';
 import { ActivatedRoute } from '@angular/router';
 import { CarService } from './../../services/car.service';
 import { CarImage } from './../../models/carImage';
@@ -14,6 +15,8 @@ export class CarDetailComponent implements OnInit {
  carImages:CarImage[];
  carId:number;
  imgUrl:string="http://localhost:2786/Images/"
+ isRentDate:boolean;
+ isReturnDate:boolean;
 
   constructor(private carService:CarService, private activatedRoute:ActivatedRoute) { }
 
@@ -46,6 +49,15 @@ export class CarDetailComponent implements OnInit {
       return 'active';
     } else {
       return '';
+    }
+  }
+
+  rentCar(carDetailDto:CarDetailDto){
+    if(this.isRentDate&&this.isReturnDate){
+      this.rentCar(carDetailDto);
+    }
+    else{
+      
     }
   }
 }

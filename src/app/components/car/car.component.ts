@@ -16,6 +16,7 @@ export class CarComponent implements OnInit {
   imgUrl ="https://localhost:2786/Images/"
   currentCar:CarDetailDto;
   defaultImage="";
+  carFilter="";
   dataLoaded = false;
 
   constructor(
