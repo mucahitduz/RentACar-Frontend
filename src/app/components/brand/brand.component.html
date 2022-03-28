@@ -14,3 +14,9 @@
   {{ currentBrand.name }} seçtiniz
   <h5></h5>
 </h5>
+
+
+<select [(ngModel)]="id" class="form-select" aria-label="Default select example">
+  <option value="0 selected">Tüm Markalar</option>
+  <option value={{brand.id}} *ngFor="let brand of brands" [class]="getCurrentBrandClass(brand)">{{brand.name}}</option>
+</select>

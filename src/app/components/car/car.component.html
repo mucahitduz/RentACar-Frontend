@@ -7,17 +7,33 @@
 </div>
 
 <div class="mb-3">
-  <label for="carFilter" class="form-label">Ara</label>
-  <input type="text" [(ngModel)]="carFilter" class="form-control" id="carFilter" placeholder="Arama ifadesi giriniz.">
+  <label for="carFilter" class="form-label">Modele Göre Ara</label>
+  <input type="text" [(ngModel)]="carFilter"  class="form-control" id="carFilter" placeholder="Arama ifadesi giriniz.">
 </div>
 <div *ngIf="carFilter.length>2" class="alert alert-primary">
 {{carFilter}} araçlar listelendi.
 </div>
 
+<div class="mb-3">
+  <label for="colorFilter" class="form-label">Renge Göre Ara</label>
+  <input type="text" [(ngModel)]="colorFilter" class="form-control" id="colorFilter" placeholder="Arama ifadesi giriniz.">
+</div>
+<div *ngIf="colorFilter.length>1" class="alert alert-primary">
+  {{colorFilter}} renk araçlar listelendi.
+  </div>
+
+  <div class="mb-3">
+    <label for="brandFilter" class="form-label">Markaya Göre Ara</label>
+    <input type="text" [(ngModel)]="brandFilter" class="form-control" id="brandFilter" placeholder="Arama ifadesi giriniz.">
+  </div>
+  <div *ngIf="brandFilter.length>1" class="alert alert-primary">
+    {{brandFilter}} marka araçlar listelendi.
+    </div>
+
 <div class="row">
   <div
     class="col-lg-4 col-md-6 shadow-lg p-3 mb-5 bg-body rounded"
-    *ngFor="let car of cars | carFilterPipe:carFilter"
+    *ngFor="let car of cars | carFilterPipe:carFilter | colorFilterPipe:colorFilter | brandFilterPipe:brandFilter"
   >  
     <div class="card border-0 mb-3" style="width: 19rem">
       <img  src="http://localhost:2786/Images/{{car.carImage[0].imagePath}}"  class="card-img-top" alt="..." width="200" height="200">      

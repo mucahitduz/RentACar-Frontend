@@ -17,6 +17,8 @@ export class CarComponent implements OnInit {
   currentCar:CarDetailDto;
   defaultImage="";
   carFilter="";
+  colorFilter="";
+  brandFilter="";
   dataLoaded = false;
 
   constructor(
